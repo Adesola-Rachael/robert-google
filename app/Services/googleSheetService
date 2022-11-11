@@ -1,0 +1,18 @@
+<?php
+namespace App\Services;
+use Google\Client;
+use Google\Service\Sheets;
+use Google\Service\Sheets\ValueRange;
+
+class GoogleSheet{
+    public function getClient(){
+        $client = new Client();
+        $client->setApplicationName("Google sheet examples");
+        $client->setAuthConfig(storage_path(path:'credentials.json'));
+        // $client->setRedirectUri('http://localhost:800/');
+        $client->setScopes(Sheets::SPREADSHEETS);     
+        // $client->setAccessType('offline');
+        return $client;
+
+    }
+}
